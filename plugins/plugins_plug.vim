@@ -27,6 +27,9 @@ Plug 'bronson/vim-trailing-whitespace'
 
 " Multi Cursor
 Plug 'terryma/vim-multiple-cursors'
+if !has('gui_running')
+    map ˜ <A-n>
+endif
 
 " FZF
 " If installed using git
