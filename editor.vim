@@ -23,3 +23,4 @@ set noswapfile " Do not create swap files
 colorscheme Monokai
 
 autocmd BufWritePre * :FixWhitespace
+autocmd BufWritePre * :call TrimEndLines()
