@@ -10,8 +10,13 @@ Plugin 'VundleVim/Vundle.vim'
 " Sometimes, it's useful to line up text. It's nicer to have the computer do this for you
 Plugin 'godlygeek/tabular'
 
+" Syntatic Checker
+Plugin 'scrooloose/syntastic'
+
 " You complete me
 Plugin 'valloric/youcompleteme'
+" manually disable Syntastic Java diagnostics.
+let g:syntastic_java_checkers = []
 
 " Markdown
 Plugin 'plasticboy/vim-markdown'
