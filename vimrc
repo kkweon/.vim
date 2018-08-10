@@ -83,7 +83,7 @@ set smartindent     " does the right thing (mostly) in programs
 
 " Search Related
 set ignorecase " case insensitive
-set smartcase  " use case if any caps used 
+set smartcase  " use case if any caps used
 set incsearch  " show match as search proceeds
 set hlsearch   " search highlighting
 
