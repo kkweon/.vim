@@ -28,6 +28,16 @@ set rtp+=~/.fzf
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
 Plugin 'tpope/vim-fugitive'
+
+" JavaScript Support
+Plugin 'pangloss/vim-javascript'
+
+" Prettier
+Plugin 'prettier/vim-prettier'
+
+" TypeScript
+Plugin 'leafgarland/typescript-vim'
+
 " plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
 " Git plugin not hosted on GitHub
