@@ -10,6 +10,9 @@ Plugin 'VundleVim/Vundle.vim'
 " Sometimes, it's useful to line up text. It's nicer to have the computer do this for you
 Plugin 'godlygeek/tabular'
 
+" You complete me
+Plugin 'valloric/youcompleteme'
+
 " Markdown
 Plugin 'plasticboy/vim-markdown'
 
