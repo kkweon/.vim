@@ -21,6 +21,10 @@ Plugin 'plasticboy/vim-markdown'
 " Trailing Whitespace
 Plugin 'bronson/vim-trailing-whitespace'
 
+" Multi Cursor
+Plugin 'terryma/vim-multiple-cursors'
+let g:multi_cursor_select_all_word_key = '<C-S-n>'
+
 " FZF
 " If installed using git
 set rtp+=~/.fzf
