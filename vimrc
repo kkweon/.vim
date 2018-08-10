@@ -101,5 +101,7 @@ nnoremap <Leader>sv :source $MYVIMRC<cr>
 nnoremap <Leader>bd :bd<cr>
 nnoremap <Leader>be ggVGx
 
+set nobackup   " Do not create backup files
+set noswapfile " Do not create swap files
 
-set nobackup " Do not create backup files
+autocmd BufWritePre * :FixWhitespace
