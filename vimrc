@@ -12,6 +12,13 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
+" Sometimes, it's useful to line up text. It's nicer to have the computer do this for you
+Plugin 'godlygeek/tabular'
+
+" Markdown
+Plugin 'plasticboy/vim-markdown'
+
+
 " FZF
 " If installed using git
 set rtp+=~/.fzf
