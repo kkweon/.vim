@@ -18,6 +18,8 @@ Plugin 'godlygeek/tabular'
 " Markdown
 Plugin 'plasticboy/vim-markdown'
 
+" Trailing Whitespace
+Plugin 'bronson/vim-trailing-whitespace'
 
 " FZF
 " If installed using git
