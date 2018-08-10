@@ -8,5 +8,10 @@ nnoremap <Leader>ft :NERDTreeToggle<cr>
 " Run FZF
 nnoremap <Leader>pf :FZF<cr>
 
+""" YCMD Keybindings
+nnoremap <Leader>gg :YcmCompleter GoTo<cr>
+nnoremap <Leader>gd :YcmCompleter GoToDefinition<cr>
+nnoremap <Leader>gb <C-o>
+
 " Delete all content in a buffer
 nnoremap <Leader>be ggVGx
