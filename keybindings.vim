@@ -5,6 +5,8 @@ nnoremap <Leader>sv :source $MYVIMRC<cr>
 nnoremap <Leader>bd :bd<cr>
 " Open NERD Tree
 nnoremap <Leader>ft :NERDTreeToggle<cr>
+" Run FZF
+nnoremap <Leader>pf :FZF<cr>
 
 " Delete all content in a buffer
 nnoremap <Leader>be ggVGx
