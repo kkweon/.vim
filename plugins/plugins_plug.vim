@@ -7,6 +7,7 @@ endif
 call plug#begin('~/.vim/plugged')
 " Plugin outside ~/.vim/plugged with post-update hook
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 " Sometimes, it's useful to line up text. It's nicer to have the computer do this for you
 Plug 'godlygeek/tabular'
