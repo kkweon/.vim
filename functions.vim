@@ -17,7 +17,7 @@ function! MoGoogle(...)
         let l:google_cmd = "!chrome '" . l:google_url . "'"
     end
     silent execute l:google_cmd
-    execute "normal \<C-l>"
+    silent! execute ":redraw!"
 endfunction
 
 " :Google how do I vim?
