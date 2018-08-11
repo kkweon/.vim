@@ -8,7 +8,7 @@ nnoremap <Leader>bd :bd<cr>
 " Open NERD Tree
 nnoremap <Leader>ft :NERDTreeToggle<cr>
 " Run FZF
-nnoremap <Leader>pf :FZF<cr>
+nnoremap <Leader>pf :Files<cr>
 
 """ YCMD Keybindings
 nnoremap <Leader>gg :YcmCompleter GoTo<cr>
