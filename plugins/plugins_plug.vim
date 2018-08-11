@@ -8,6 +8,14 @@ call plug#begin('~/.vim/plugged')
 " Plugin outside ~/.vim/plugged with post-update hook
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+" Use ripgrep instead of ag
+command! -bang -nargs=* Rg
+            \ call fzf#vim#grep(
+            \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+            \   <bang>0 ? fzf#vim#with_preview('up:60%')
+            \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+            \   <bang>0)
+nnoremap <Leader>ps :Rg<cr>
 
 " Sometimes, it's useful to line up text. It's nicer to have the computer do this for you
 Plug 'godlygeek/tabular'
