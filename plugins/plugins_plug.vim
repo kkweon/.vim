@@ -11,6 +11,9 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 " Sometimes, it's useful to line up text. It's nicer to have the computer do this for you
 Plug 'godlygeek/tabular'
 
+" CSS
+Plug 'hail2u/vim-css3-syntax'
+
 " Syntatic Checker
 Plug 'scrooloose/syntastic'
 
