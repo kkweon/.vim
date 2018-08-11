@@ -17,6 +17,16 @@ command! -bang -nargs=* Rg
             \   <bang>0)
 nnoremap <Leader>ps :Rg<cr>
 
+" Snippets
+Plug 'sirver/ultisnips'
+" Snippets are separated from the engine. Add this if you want them:
+Plug 'honza/vim-snippets'
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger = "<C-_>"
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit = "vertical"
+
 " Sometimes, it's useful to line up text. It's nicer to have the computer do this for you
 Plug 'godlygeek/tabular'
 
