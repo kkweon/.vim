@@ -1,3 +1,5 @@
+""" Leadyer key
+let mapleader = " "
 """ CUSTOM FUNCTIONS
 nnoremap <Leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <Leader>sv :source $MYVIMRC<cr>
