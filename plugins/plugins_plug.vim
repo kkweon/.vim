@@ -32,6 +32,8 @@ Plug 'godlygeek/tabular'
 
 " CSS
 Plug 'hail2u/vim-css3-syntax'
+" Emmet
+Plug 'mattn/emmet-vim'
 
 " Syntatic Checker
 Plug 'scrooloose/syntastic'
