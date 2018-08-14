@@ -1,4 +1,4 @@
-""" Leadyer key
+""" Leader key
 let mapleader = " "
 """ CUSTOM FUNCTIONS
 nnoremap <Leader>ev :vsplit $MYVIMRC<cr>
