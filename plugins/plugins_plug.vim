@@ -33,6 +33,9 @@ Plug 'godlygeek/tabular'
 " CSS
 Plug 'hail2u/vim-css3-syntax'
 
+" Fish Shell
+Plug 'dag/vim-fish'
+
 " Syntatic Checker
 Plug 'scrooloose/syntastic'
 
