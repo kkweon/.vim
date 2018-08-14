@@ -33,9 +33,6 @@ Plug 'godlygeek/tabular'
 " CSS
 Plug 'hail2u/vim-css3-syntax'
 
-" Fish Shell
-Plug 'dag/vim-fish'
-
 " Syntatic Checker
 Plug 'scrooloose/syntastic'
 
@@ -73,10 +70,6 @@ Plug 'prettier/vim-prettier'
 " TypeScript
 Plug 'leafgarland/typescript-vim'
 
-" plugin from http://vim-scripts.org/vim/scripts.html
-" Plug 'L9'
-" Git plugin not hosted on GitHub
-Plug 'git://git.wincent.com/command-t.git'
 " git repos on your local machine (i.e. when working on your own plugin)
 " Plug 'file:///home/gmarik/path/to/plugin'
 " The sparkup vim script is in a subdirectory of this repo called vim.
@@ -86,9 +79,9 @@ Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
 " different version somewhere else.
 " Plug 'ascenator/L9', {'name': 'newL9'}
 " Color Scheme
-Plug 'flazz/vim-colorschemes' " nerd tree
+Plug 'flazz/vim-colorschemes'
+" nerd tree
 Plug 'scrooloose/nerdtree'
-Plug 'kien/ctrlp.vim'
 Plug 'bling/vim-airline'
 " Perform all your vim insert mode completions with Tab
 Plug 'ervandew/supertab'
