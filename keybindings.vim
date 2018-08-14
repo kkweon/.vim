@@ -6,7 +6,7 @@ nnoremap <Leader>sv :source $MYVIMRC<cr>
 " Close Buffer
 nnoremap <Leader>bd :bd<cr>
 " Open NERD Tree
-nnoremap <Leader>ft :NERDTreeToggle<cr>
+nnoremap <Leader>ft :NERDTreeToggle %<cr>
 " Run FZF
 nnoremap <Leader>pf :Files<cr>
 
