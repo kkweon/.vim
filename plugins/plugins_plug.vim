@@ -11,12 +11,14 @@ Plug 'junegunn/fzf.vim'
 " Use ripgrep instead of ag
 command! -bang -nargs=* Rg
             \ call fzf#vim#grep(
-            \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+            \   'rg --column --line-number --no-heading --color=never --smart-case '.shellescape(<q-args>), 1,
             \   <bang>0 ? fzf#vim#with_preview('up:60%')
             \           : fzf#vim#with_preview('right:50%:hidden', '?'),
             \   <bang>0)
 nnoremap <Leader>ps :Rg<cr>
 
+" Elm Support
+Plug 'elmcast/elm-vim'
 " Snippets
 Plug 'sirver/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
