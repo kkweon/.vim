@@ -22,3 +22,54 @@ endfunction
 
 " :Google how do I vim?
 command! -nargs=+ Google :call MoGoogle(<f-args>)
+
+
+function! s:MoIsExtension(...)
+    let l:current_filename_extension = expand('%:e')
+    for extension in a:000
+        if l:current_filename_extension ==# extension
+            return 1
+        endif
+    endfor
+endfunction
+
+function! s:MoIsJSFile()
+    return s:MoIsExtension('js', 'jsx', 'ts', 'tsx')
+endfunction
+
+function! s:MoIsHTMLFile()
+    return s:MoIsExtension('html', 'tmpl', 'tml')
+endfunction
+
+function! s:MoGoToFileByExtensions(extensions)
+    let l:current_filename = expand('%:t:r')
+    for extension in a:extensions
+        let l:command = 'git ls-files --full-name | rg '.  shellescape(l:current_filename) . '.' . extension
+        let l:files = system(l:command)
+        if (l:files =~ '^\s*$')
+            continue
+        endif
+        execute 'edit '. l:files
+        return
+    endfor
+    echomsg 'No matching files.'
+endfunction
+
+function! s:MoGoToJSFile()
+    call s:MoGoToFileByExtensions(['tsx', 'ts', 'jsx', 'js'])
+endfunction
+
+function! s:MoGoToHTMLFile()
+    call s:MoGoToFileByExtensions(['html', 'tmpl', 'tml'])
+endfunction
+
+function! MoToggleViewFile()
+    if s:MoIsJSFile()
+        call s:MoGoToHTMLFile()
+    elseif s:MoIsHTMLFile()
+        call s:MoGoToJSFile()
+    end
+endfunction
+
+
+nnoremap <LocalLeader>tt :call MoToggleViewFile()<cr>
