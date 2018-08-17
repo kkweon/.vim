@@ -1,7 +1,7 @@
 """ Leader key
 let mapleader = " "
 """ CUSTOM FUNCTIONS
-nnoremap <Leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <Leader>ev :vsplit $MYVIMRC<cr> :execute 'lcd ' . fnamemodify($MYVIMRC, ':p:h')<cr>
 nnoremap <Leader>sv :source $MYVIMRC<cr>
 " Close Buffer
 nnoremap <Leader>bd :bd<cr>
