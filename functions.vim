@@ -44,8 +44,8 @@ endfunction
 function! s:MoGoToFileByExtensions(extensions)
     let l:current_filename = expand('%:t:r')
     for extension in a:extensions
-        let l:command = 'git ls-files --full-name | rg '.  shellescape(l:current_filename) . '.' . extension
-        let l:files = system(l:command)
+        let l:command = 'git ls-files --full-name | rg /'.  shellescape(l:current_filename) . '.' . extension
+        let l:files = substitute(system(l:command), '\n\+$', '', '')
         if (l:files =~ '^\s*$')
             continue
         endif
@@ -74,7 +74,5 @@ endfunction
 
 augroup js_file_commands
     au!
-    au FileType javascript nnoremap <buffer> <LocalLeader>tt :call MoToggleViewFile()<cr>
-    au FileType typescript nnoremap <buffer> <LocalLeader>tt :call MoToggleViewFile()<cr>
-    au FileType htmlcheetah nnoremap <buffer> <LocalLeader>tt :call MoToggleViewFile()<cr>
+    au FileType javascript,typescript,html,htmlcheetah nnoremap <buffer> <LocalLeader>tt :call MoToggleViewFile()<cr>
 augroup END
