@@ -156,6 +156,9 @@ set autoindent     " turns it on
 set smartindent    " does the right thing (mostly) in programs
 set encoding=utf-8 " utf-8 always
 
+set splitbelow
+set splitright
+
 
 " Search Related
 set ignorecase " case insensitive
