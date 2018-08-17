@@ -72,4 +72,9 @@ function! MoToggleViewFile()
 endfunction
 
 
-nnoremap <LocalLeader>tt :call MoToggleViewFile()<cr>
+augroup js_file_commands
+    au!
+    au FileType javascript nnoremap <buffer> <LocalLeader>tt :call MoToggleViewFile()<cr>
+    au FileType typescript nnoremap <buffer> <LocalLeader>tt :call MoToggleViewFile()<cr>
+    au FileType htmlcheetah nnoremap <buffer> <LocalLeader>tt :call MoToggleViewFile()<cr>
+augroup END
