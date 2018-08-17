@@ -3,3 +3,4 @@ plugged
 .netrwhist
 autoload/plug.vim
 tags
+bin/reason-language-server.exe

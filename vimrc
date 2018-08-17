@@ -27,6 +27,25 @@ nnoremap <Leader>ps :Rg<cr>
 
 " Elm Support
 Plug 'elmcast/elm-vim'
+" ReasonML Support
+Plug 'reasonml-editor/vim-reason-plus'
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+
+" for neovim
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" for vim 8 with python
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+  " the path to python3 is obtained through executing `:echo exepath('python3')` in vim
+  let g:python3_host_prog = exepath('python3')
+endif
+
 " Snippets
 Plug 'sirver/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
@@ -107,6 +126,18 @@ Plug 'tpope/vim-surround'
 
 filetype plugin indent on                   " required!
 call plug#end()
+
+" ==============================
+" PLUGINS
+" ==============================
+let s:reason_language_server_exe_path = fnamemodify('~/.vim/bin/reason-language-server.exe', ':p')
+let g:LanguageClient_serverCommands = {
+    \ 'reason': [s:reason_language_server_exe_path],
+    \ }
+
+" enable autocomplete
+let g:deoplete#enable_at_startup = 1
+
 
 " ==============================
 " FUNCTION
