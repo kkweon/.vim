@@ -70,9 +70,3 @@ function! MoToggleViewFile()
         call s:MoGoToJSFile()
     end
 endfunction
-
-
-augroup js_file_commands
-    au!
-    au FileType javascript,typescript,html,htmlcheetah nnoremap <buffer> <LocalLeader>tt :call MoToggleViewFile()<cr>
-augroup END
