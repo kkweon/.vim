@@ -52,6 +52,7 @@ Plug 'sirver/ultisnips'
 Plug 'honza/vim-snippets'
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+" This is equivalent to <C-/>
 let g:UltiSnipsExpandTrigger = "<C-_>"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit = "vertical"
