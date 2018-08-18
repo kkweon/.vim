@@ -70,3 +70,13 @@ function! MoToggleViewFile()
         call s:MoGoToJSFile()
     end
 endfunction
+
+function! MoEditByGitFiles(name)
+    let l:command = 'git ls-files --full-name | rg ' . shellescape(a:name)
+    let l:files = substitute(system(l:command), '\n\+$', '', '')
+    if (l:files =~ '^\s*$')
+        echom fnameescape(a:name) . ' is not available'
+        return
+    endif
+    execute 'edit '. fnameescape(l:files)
+endfunction

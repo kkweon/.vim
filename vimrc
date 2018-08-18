@@ -208,6 +208,7 @@ nnoremap <Leader>pf :Files<cr>
 nnoremap <Leader>gg :YcmCompleter GoTo<cr>
 nnoremap <Leader>gd :YcmCompleter GoToDefinition<cr>
 nnoremap <Leader>gb <C-o>
+nnoremap <Leader>gf :call MoEditByGitFiles(expand('<cword>'))<cr>
 
 " Delete all content in a buffer
 nnoremap <Leader>be ggVGx
