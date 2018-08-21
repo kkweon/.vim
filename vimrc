@@ -119,6 +119,7 @@ set rtp+=~/.fzf
 " Keep Plug commands between vundle#begin/end.
 " plugin on GitHub repo
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 
 " JavaScript Support
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'typescript'] }
