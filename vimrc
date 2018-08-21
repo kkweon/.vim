@@ -32,14 +32,14 @@ Plug 'z0mbix/vim-shfmt', { 'for': 'sh' }
 Plug 'solarnz/thrift.vim', { 'for': 'thrift' }
 
 " Org-mode
-Plug 'jceb/vim-orgmode'
+Plug 'jceb/vim-orgmode', { 'for': 'org' }
 
 " Tag Bar
 Plug 'majutsushi/tagbar'
 
 " Haskell Support
 " NECO-GHC: GHC-MOD COMPLETION FOR NEOCOMPLCACHE/NEOCOMPLETE/DEOPLETE
-Plug 'eagletmt/neco-ghc'
+Plug 'eagletmt/neco-ghc', { 'for': 'haskell' }
 
 augroup filetype_haskell
     autocmd!
@@ -53,9 +53,9 @@ augroup END
 
 
 " Elm Support
-Plug 'elmcast/elm-vim'
+Plug 'elmcast/elm-vim', { 'for': 'elm' }
 " ReasonML Support
-Plug 'reasonml-editor/vim-reason-plus'
+Plug 'reasonml-editor/vim-reason-plus', { 'for': 'reason' }
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
@@ -88,7 +88,7 @@ let g:UltiSnipsEditSplit = "vertical"
 Plug 'godlygeek/tabular'
 
 " CSS
-Plug 'hail2u/vim-css3-syntax'
+Plug 'hail2u/vim-css3-syntax', { 'for': ['css', 'less', 'scss'] }
 " Emmet
 Plug 'mattn/emmet-vim'
 
@@ -101,7 +101,7 @@ Plug 'valloric/youcompleteme'
 let g:syntastic_java_checkers = []
 
 " Markdown
-Plug 'plasticboy/vim-markdown'
+Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 
 " Trailing Whitespace
 Plug 'bronson/vim-trailing-whitespace'
@@ -121,13 +121,13 @@ set rtp+=~/.fzf
 Plug 'tpope/vim-fugitive'
 
 " JavaScript Support
-Plug 'pangloss/vim-javascript'
+Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'typescript'] }
 
 " Prettier
-Plug 'prettier/vim-prettier'
+Plug 'prettier/vim-prettier', { 'for': ['javascript', 'typescript', 'css', 'less', 'scss'] }
 
 " TypeScript
-Plug 'leafgarland/typescript-vim'
+Plug 'leafgarland/typescript-vim', { 'for': ['javascript', 'typescript'] }
 
 " git repos on your local machine (i.e. when working on your own plugin)
 " Plug 'file:///home/gmarik/path/to/plugin'
