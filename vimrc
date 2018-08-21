@@ -28,6 +28,9 @@ nnoremap <Leader>ps :Rg<cr>
 " Shell Format
 Plug 'z0mbix/vim-shfmt', { 'for': 'sh' }
 
+" Thrift Support
+Plug 'solarnz/thrift.vim', { 'for': 'thrift' }
+
 " Org-mode
 Plug 'jceb/vim-orgmode'
 
