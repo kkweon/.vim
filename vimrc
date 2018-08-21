@@ -25,6 +25,30 @@ command! -bang -nargs=* Rg
             \   <bang>0)
 nnoremap <Leader>ps :Rg<cr>
 
+" Shell Format
+Plug 'z0mbix/vim-shfmt', { 'for': 'sh' }
+
+" Org-mode
+Plug 'jceb/vim-orgmode'
+
+" Tag Bar
+Plug 'majutsushi/tagbar'
+
+" Haskell Support
+" NECO-GHC: GHC-MOD COMPLETION FOR NEOCOMPLCACHE/NEOCOMPLETE/DEOPLETE
+Plug 'eagletmt/neco-ghc'
+
+augroup filetype_haskell
+    autocmd!
+    " Disable haskell-vim omnifunc
+    let g:haskellmode_completion_ghc = 0
+    autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+    autocmd FileType haskell setlocal formatprg=stylish-haskell
+    autocmd FileType haskell setlocal equalprg=hindent\ --style\ 'johan-tibell'
+augroup END
+
+
+
 " Elm Support
 Plug 'elmcast/elm-vim'
 " ReasonML Support
@@ -131,13 +155,23 @@ call plug#end()
 " ==============================
 " PLUGINS
 " ==============================
+" reasonML
 let s:reason_language_server_exe_path = fnamemodify('~/.vim/bin/reason-language-server.exe', ':p')
 let g:LanguageClient_serverCommands = {
     \ 'reason': [s:reason_language_server_exe_path],
     \ }
-
 " enable autocomplete
 let g:deoplete#enable_at_startup = 1
+" elm
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:elm_syntastic_show_warnings = 1
+let g:elm_detailed_complete = 1
+let g:ycm_semantic_triggers = {
+            \ 'elm' : ['.'],
+            \ 'haskell': ['.'],
+            \}
+
 
 
 " ==============================
@@ -187,6 +221,7 @@ augroup END
 augroup js_file_commands
     au!
     au FileType javascript,typescript,html,htmlcheetah nnoremap <buffer> <LocalLeader>tt :call MoToggleViewFile()<cr>
+    au FileType javascript,typescript au BufWritePre <buffer> :Prettier
 augroup END
 
 
@@ -213,3 +248,8 @@ nnoremap <Leader>gf :call MoEditByGitFiles(expand('<cword>'))<cr>
 
 " Delete all content in a buffer
 nnoremap <Leader>be ggVGx
+
+" Tag bar
+nnoremap <Leader>tT :TagbarToggle<cr>
+
+command! MoExecute execute "read !" . getline('.')
