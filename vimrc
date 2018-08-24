@@ -221,7 +221,6 @@ augroup END
 augroup js_file_commands
     au!
     au FileType javascript,typescript,html,htmlcheetah nnoremap <buffer> <LocalLeader>tt :call MoToggleViewFile()<cr>
-    au FileType javascript,typescript au BufWritePre <buffer> :Prettier
 augroup END
 
 
