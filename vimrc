@@ -25,6 +25,7 @@ command! -bang -nargs=* Rg
             \   <bang>0)
 nnoremap <Leader>ps :Rg<cr>
 
+Plug 'easymotion/vim-easymotion'
 " Shell Format
 Plug 'z0mbix/vim-shfmt', { 'for': 'sh' }
 
@@ -37,9 +38,12 @@ Plug 'jceb/vim-orgmode', { 'for': 'org' }
 " Tag Bar
 Plug 'majutsushi/tagbar'
 
+" Requirement for ghcmod-vim
+Plug 'shougo/vimproc.vim', {'do' : 'make'}
 " Haskell Support
 " NECO-GHC: GHC-MOD COMPLETION FOR NEOCOMPLCACHE/NEOCOMPLETE/DEOPLETE
 Plug 'eagletmt/neco-ghc', { 'for': 'haskell' }
+Plug 'eagletmt/ghcmod-vim', { 'for': 'haskell' }
 
 augroup filetype_haskell
     autocmd!
@@ -171,10 +175,12 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:elm_syntastic_show_warnings = 1
 let g:elm_detailed_complete = 1
+
+let g:ycm_always_populate_location_list = 1
 let g:ycm_semantic_triggers = {
             \ 'elm' : ['.'],
             \ 'haskell': ['.'],
-            \}
+            \ }
 
 
 
@@ -234,8 +240,15 @@ nnoremap <Leader>sv :source $MYVIMRC<cr>
 " Close Buffer
 nnoremap <Leader>bd :bd<cr>
 " Open NERD Tree
-nnoremap <Leader>ft :NERDTreeToggle %<cr>
-nnoremap <Leader>pt :NERDTreeToggle<cr>
+function! MoToggleNERDTree(command)
+    if expand('%') =~ 'NERD'
+        execute 'NERDTreeToggle'
+    else
+        execute a:command
+    endif
+endfunction
+nnoremap <Leader>ft :call MoToggleNERDTree('NERDTree %')<cr>
+nnoremap <Leader>pt :call MoToggleNERDTree('NERDTree .')<cr>
 " Run FZF
 nnoremap <Leader>pf :Files<cr>
 
@@ -244,6 +257,8 @@ nnoremap <Leader>gg :YcmCompleter GoTo<cr>
 nnoremap <Leader>gd :YcmCompleter GoToDefinition<cr>
 nnoremap <Leader>gb <C-o>
 nnoremap <Leader>gf :call MoEditByGitFiles(expand('<cword>'))<cr>
+nnoremap <Leader>ef :YcmCompleter FixIt<cr>
+nnoremap <Leader>rr :YcmCompleter RefactorRename
 
 " Delete all content in a buffer
 nnoremap <Leader>be ggVGx
