@@ -125,7 +125,7 @@ Plug 'tpope/vim-rhubarb'
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'typescript'] }
 
 " Prettier
-Plug 'prettier/vim-prettier', { 'for': ['javascript', 'typescript', 'css', 'less', 'scss'] }
+Plug 'prettier/vim-prettier'
 
 " TypeScript
 Plug 'leafgarland/typescript-vim', { 'for': ['javascript', 'typescript'] }
