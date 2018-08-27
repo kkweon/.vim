@@ -241,7 +241,7 @@ nnoremap <Leader>sv :source $MYVIMRC<cr>
 nnoremap <Leader>bd :bd<cr>
 " Open NERD Tree
 function! MoToggleNERDTree(command)
-    if expand('%') =~ 'NERD'
+    if expand('%') =~ 'NERD' || expand('%') == ''
         execute 'NERDTreeToggle'
     else
         execute a:command
