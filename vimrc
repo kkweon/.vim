@@ -45,10 +45,11 @@ Plug 'shougo/vimproc.vim', {'do' : 'make'}
 Plug 'eagletmt/neco-ghc', { 'for': 'haskell' }
 Plug 'eagletmt/ghcmod-vim', { 'for': 'haskell' }
 
+" Disable haskell-vim omnifunc
+let g:haskellmode_completion_ghc = 0
+
 augroup filetype_haskell
     autocmd!
-    " Disable haskell-vim omnifunc
-    let g:haskellmode_completion_ghc = 0
     autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
     autocmd FileType haskell setlocal formatprg=stylish-haskell
     autocmd FileType haskell setlocal equalprg=hindent\ --style\ 'johan-tibell'
@@ -68,6 +69,7 @@ Plug 'autozimu/LanguageClient-neovim', {
 " for neovim
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'parsonsmatt/intero-neovim' " intero
 " for vim 8 with python
 else
   Plug 'Shougo/deoplete.nvim'
