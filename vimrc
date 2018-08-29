@@ -99,7 +99,9 @@ Plug 'hail2u/vim-css3-syntax', { 'for': ['css', 'less', 'scss'] }
 Plug 'mattn/emmet-vim'
 
 " Syntatic Checker
-Plug 'w0rp/ale'
+" Plug 'w0rp/ale'
+Plug 'scrooloose/syntastic'
+
 let g:ale_linters = {
             \   'javascript': ['eslint'],
             \}
