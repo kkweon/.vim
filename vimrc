@@ -42,15 +42,15 @@ Plug 'majutsushi/tagbar'
 Plug 'shougo/vimproc.vim', {'do' : 'make'}
 " Haskell Support
 " NECO-GHC: GHC-MOD COMPLETION FOR NEOCOMPLCACHE/NEOCOMPLETE/DEOPLETE
-Plug 'eagletmt/neco-ghc', { 'for': 'haskell' }
-Plug 'eagletmt/ghcmod-vim', { 'for': 'haskell' }
+"Plug 'eagletmt/neco-ghc', { 'for': 'haskell' }
+"Plug 'eagletmt/ghcmod-vim', { 'for': 'haskell' }
 
 " Disable haskell-vim omnifunc
-let g:haskellmode_completion_ghc = 0
+"let g:haskellmode_completion_ghc = 0
 
 augroup filetype_haskell
     autocmd!
-    autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+    "autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
     autocmd FileType haskell setlocal formatprg=stylish-haskell
     autocmd FileType haskell setlocal equalprg=hindent\ --style\ 'johan-tibell'
 augroup END
@@ -99,7 +99,10 @@ Plug 'hail2u/vim-css3-syntax', { 'for': ['css', 'less', 'scss'] }
 Plug 'mattn/emmet-vim'
 
 " Syntatic Checker
-Plug 'scrooloose/syntastic'
+Plug 'w0rp/ale'
+let g:ale_linters = {
+            \   'javascript': ['eslint'],
+            \}
 
 " You complete me
 Plug 'valloric/youcompleteme'
