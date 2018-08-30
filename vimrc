@@ -134,7 +134,7 @@ Plug 'tpope/vim-rhubarb'
 
 " JavaScript Support
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'typescript'] }
-
+Plug 'mxw/vim-jsx'
 " Prettier
 Plug 'prettier/vim-prettier'
 
