@@ -56,6 +56,10 @@ augroup filetype_haskell
 augroup END
 
 
+" Purescript
+Plug 'raichoo/purescript-vim'
+Plug 'frigoeu/psc-ide-vim'
+
 
 " Elm Support
 Plug 'elmcast/elm-vim', { 'for': 'elm' }
@@ -265,7 +269,7 @@ nnoremap <Leader>gd :YcmCompleter GoToDefinition<cr>
 nnoremap <Leader>gb <C-o>
 nnoremap <Leader>gf :call MoEditByGitFiles(expand('<cword>'))<cr>
 nnoremap <Leader>ef :YcmCompleter FixIt<cr>
-nnoremap <Leader>rr :YcmCompleter RefactorRename
+nnoremap <Leader>rr :YcmCompleter RefactorRename<space>
 
 " Delete all content in a buffer
 nnoremap <Leader>be ggVGx
