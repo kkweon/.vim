@@ -30,6 +30,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'z0mbix/vim-shfmt', { 'for': 'sh' }
 " Thrift Support
 Plug 'solarnz/thrift.vim', { 'for': 'thrift' }
+Plug 'ap/vim-css-color'
 " Org-mode
 Plug 'jceb/vim-orgmode', { 'for': 'org' }
 " Tag Bar
@@ -97,6 +98,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers = ['eslint']
 " manually disable Syntastic Java diagnostics.
 let g:syntastic_java_checkers = []
 let g:ale_linters = {
@@ -147,7 +149,7 @@ Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plug 'flazz/vim-colorschemes'
 " nerd tree
 Plug 'scrooloose/nerdtree'
-Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
 " Perform all your vim insert mode completions with Tab
 Plug 'ervandew/supertab'
 " Vim plugin for intensely orgasmic commenting
