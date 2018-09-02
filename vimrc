@@ -50,15 +50,15 @@ let g:elm_syntastic_show_warnings = 1
 let g:elm_detailed_complete = 1
 " ReasonML Support
 Plug 'reasonml-editor/vim-reason-plus', { 'for': 'reason' }
-" reasonML
-let s:reason_language_server_exe_path = fnamemodify('~/.vim/bin/reason-language-server.exe', ':p')
-
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
     \ }
 let g:LanguageClient_serverCommands = {
-    \ 'reason': [s:reason_language_server_exe_path],
+    \ 'reason': ['~/.vim/bin/reason-language-server.exe'],
+    \ 'css': ['css-languageserver', '--stdio'],
+    \ 'javascript': ['~/github/javascript-typescript-langserver/lib/language-server-stdio.js'],
+    \ 'typescript': ['~/github/javascript-typescript-langserver/lib/language-server-stdio.js'],
     \ }
 
 " for neovim
@@ -242,6 +242,13 @@ nnoremap <Leader>gb <C-o>
 nnoremap <Leader>gf :call MoEditByGitFiles(expand('<cword>'))<cr>
 nnoremap <Leader>ef :YcmCompleter FixIt<cr>
 nnoremap <Leader>rr :YcmCompleter RefactorRename<space>
+
+" LanguageServer
+nnoremap <Leader>ll :call LanguageClient_contextMenu()<CR>
+" Or map each action separately
+nnoremap <Leader>lh :call LanguageClient#textDocument_hover()<CR>
+nnoremap <Leader>lgd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <Leader>lr :call LanguageClient#textDocument_rename()<CR>
 
 " Delete all content in a buffer
 nnoremap <Leader>be ggVGx
