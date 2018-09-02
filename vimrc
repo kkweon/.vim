@@ -59,6 +59,7 @@ let g:LanguageClient_serverCommands = {
     \ 'css': ['css-languageserver', '--stdio'],
     \ 'javascript': ['~/github/javascript-typescript-langserver/lib/language-server-stdio.js'],
     \ 'typescript': ['~/github/javascript-typescript-langserver/lib/language-server-stdio.js'],
+    \ 'haskell': ['hie-wrapper'],
     \ }
 
 " for neovim
@@ -248,6 +249,9 @@ nnoremap <Leader>ll :call LanguageClient_contextMenu()<CR>
 " Or map each action separately
 nnoremap <Leader>lh :call LanguageClient#textDocument_hover()<CR>
 nnoremap <Leader>lgd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <Leader>lb :call LanguageClient#textDocument_references()<CR>
+nnoremap <Leader>la :call LanguageClient#textDocument_codeAction()<CR>
+nnoremap <Leader>ls :call LanguageClient#textDocument_documentSymbol()<CR>
 nnoremap <Leader>lr :call LanguageClient#textDocument_rename()<CR>
 
 " Delete all content in a buffer
