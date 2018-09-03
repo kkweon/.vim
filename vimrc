@@ -26,6 +26,8 @@ command! -bang -nargs=* Rg
             \   <bang>0)
 nnoremap <Leader>ps :Rg<cr>
 Plug 'easymotion/vim-easymotion'
+Plug 'python-mode/python-mode', { 'branch': 'develop' }
+let g:pymode_python = 'python3'
 " Shell Format
 Plug 'z0mbix/vim-shfmt', { 'for': 'sh' }
 " Thrift Support
@@ -57,8 +59,9 @@ Plug 'autozimu/LanguageClient-neovim', {
 let g:LanguageClient_serverCommands = {
     \ 'reason': ['~/.vim/bin/reason-language-server.exe'],
     \ 'css': ['css-languageserver', '--stdio'],
-    \ 'javascript': ['javascript-typescript-stdio'],
-    \ 'typescript': ['javascript-typescript-stdio'],
+    \ 'javascript': ['javascript-typescript-stdio', '--jsx'],
+    \ 'javascript.jsx': ['javascript-typescript-stdio', '--jsx'],
+    \ 'typescript': ['javascript-typescript-stdio', '--jsx'],
     \ 'haskell': ['hie-wrapper'],
     \ }
 
@@ -89,6 +92,11 @@ Plug 'godlygeek/tabular'
 Plug 'hail2u/vim-css3-syntax', { 'for': ['css', 'less', 'scss'] }
 " Emmet
 Plug 'mattn/emmet-vim'
+let g:user_emmet_settings = {
+            \  'javascript.jsx' : {
+            \      'extends' : 'jsx',
+            \  },
+            \}
 " Syntatic Checker
 " Plug 'w0rp/ale'
 Plug 'scrooloose/syntastic'
