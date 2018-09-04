@@ -222,6 +222,11 @@ augroup filetype_haskell
     autocmd FileType haskell setlocal equalprg=hindent\ --style\ 'johan-tibell'
 augroup END
 
+augroup filetype_markdown
+    autocmd!
+    autocmd FileType markdown setlocal nofoldenable
+augroup END
+
 " ==============================
 " KEYBINDINGS
 " ==============================
