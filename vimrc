@@ -59,9 +59,9 @@ Plug 'autozimu/LanguageClient-neovim', {
 let g:LanguageClient_serverCommands = {
     \ 'reason': ['~/.vim/bin/reason-language-server.exe'],
     \ 'css': ['css-languageserver', '--stdio'],
-    \ 'javascript': ['javascript-typescript-stdio', '--jsx'],
-    \ 'javascript.jsx': ['javascript-typescript-stdio', '--jsx'],
-    \ 'typescript': ['javascript-typescript-stdio', '--jsx'],
+    \ 'javascript': ['javascript-typescript-stdio'],
+    \ 'javascript.jsx': ['javascript-typescript-stdio'],
+    \ 'typescript': ['javascript-typescript-stdio'],
     \ 'haskell': ['hie-wrapper'],
     \ }
 
