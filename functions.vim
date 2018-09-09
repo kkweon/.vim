@@ -93,3 +93,8 @@ function! MoGetVisualSelection()
     let lines[0] = lines[0][column_start - 1:]
     return join(lines, "\n")
 endfunction
+
+function! MoToggleFileByExtension(extension)
+    let current_filename = expand('%:r')
+    execute 'edit ' . current_filename . '.' . a:extension
+endfunction

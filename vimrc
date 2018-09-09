@@ -59,9 +59,6 @@ Plug 'autozimu/LanguageClient-neovim', {
 let g:LanguageClient_serverCommands = {
     \ 'reason': ['~/.vim/bin/reason-language-server.exe'],
     \ 'css': ['css-languageserver', '--stdio'],
-    \ 'javascript': ['javascript-typescript-stdio'],
-    \ 'javascript.jsx': ['javascript-typescript-stdio'],
-    \ 'typescript': ['javascript-typescript-stdio'],
     \ 'haskell': ['hie-wrapper'],
     \ }
 
@@ -108,6 +105,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_html_checkers = []
 " manually disable Syntastic Java diagnostics.
 let g:syntastic_java_checkers = []
 let g:ale_linters = {
@@ -209,9 +207,15 @@ augroup global_whitespace_fix
     autocmd BufWritePre * :call TrimEndLines()
 augroup END
 
-augroup js_file_commands
+augroup filetype_js
     au!
     au FileType javascript,typescript,html,htmlcheetah nnoremap <buffer> <LocalLeader>tt :call MoToggleViewFile()<cr>
+    au FileType javascript,typescript autocmd BufWritePre <buffer> :Prettier<cr>
+augroup END
+
+augroup filetype_html
+    au!
+    autocmd FileType html setlocal formatprg=html-beautify
 augroup END
 
 " Haskell Support
@@ -245,7 +249,7 @@ function! MoToggleNERDTree(command)
     endif
 endfunction
 nnoremap <Leader>ft :call MoToggleNERDTree('NERDTree %')<cr>
-nnoremap <Leader>pt :call MoToggleNERDTree('NERDTree .')<cr>
+nnoremap <Leader>pt :NERDTreeToggle<space>
 " Run FZF
 nnoremap <Leader>pf :Files<cr>
 
@@ -271,6 +275,8 @@ nnoremap <Leader>lr :call LanguageClient#textDocument_rename()<CR>
 nnoremap <Leader>be ggVGx
 nnoremap <Leader>by m'gg"*yG''
 
-" Tag bar
+" t
 nnoremap <Leader>tT :TagbarToggle<cr>
+command! -nargs=1 MoToggleFileByExtension :call MoToggleFileByExtension('<args>')
+nnoremap <Leader>te :MoToggleFileByExtension<space>
 command! MoExecute execute "read !" . getline('.')
