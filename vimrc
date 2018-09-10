@@ -95,22 +95,29 @@ let g:user_emmet_settings = {
             \  },
             \}
 " Syntatic Checker
-" Plug 'w0rp/ale'
-Plug 'scrooloose/syntastic'
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_html_checkers = []
-" manually disable Syntastic Java diagnostics.
-let g:syntastic_java_checkers = []
+Plug 'w0rp/ale'
 let g:ale_linters = {
-            \   'javascript': ['eslint'],
+            \ 'javascript': ['prettier', 'eslint'],
+            \ 'typescript': ['prettier', 'tsserver']
             \}
+let g:ale_fixers = {
+            \ '*': ['remove_trailing_lines', 'trim_whitespace'],
+            \ 'javascript': ['prettier', 'eslint'],
+            \ 'typescript': ['prettier', 'tslint']
+            \}
+
+"Plug 'scrooloose/syntastic'
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+"let g:syntastic_javascript_checkers = ['eslint']
+"let g:syntastic_html_checkers = []
+"" manually disable Syntastic Java diagnostics.
+"let g:syntastic_java_checkers = []
 
 " You complete me
 Plug 'valloric/youcompleteme'
