@@ -25,7 +25,11 @@ command! -bang -nargs=* Rg
             \           : fzf#vim#with_preview('right:50%:hidden', '?'),
             \   <bang>0)
 nnoremap <Leader>ps :Rg<cr>
+Plug 'dag/vim-fish'
 Plug 'easymotion/vim-easymotion'
+Plug 'editorconfig/editorconfig-vim'
+let g:EditorConfig_exclude_patterns = ['fugitive://.*']
+
 Plug 'python-mode/python-mode', { 'branch': 'develop' }
 let g:pymode_python = 'python3'
 " Shell Format
@@ -65,7 +69,6 @@ let g:LanguageClient_serverCommands = {
 " for neovim
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  Plug 'parsonsmatt/intero-neovim' " intero
 " for vim 8 with python
 else
   Plug 'Shougo/deoplete.nvim'
@@ -220,6 +223,11 @@ augroup filetype_js
     au FileType javascript,typescript autocmd BufWritePre <buffer> :Prettier<cr>
 augroup END
 
+augroup filetype_fish
+    au!
+    au FileType fish setlocal foldmethod=manual
+augroup END
+
 augroup filetype_html
     au!
     autocmd FileType html setlocal formatprg=html-beautify
@@ -255,6 +263,10 @@ function! MoToggleNERDTree(command)
         execute a:command
     endif
 endfunction
+
+" B
+nnoremap <Leader>bb :Buffers<cr>
+
 nnoremap <Leader>ft :call MoToggleNERDTree('NERDTree %')<cr>
 nnoremap <Leader>pt :NERDTreeToggle<space>
 " Run FZF
