@@ -5,6 +5,7 @@ set nocompatible              " be iMproved, required
 " the path to python3 is obtained through executing `:echo exepath('python3')` in vim
 let g:python3_host_prog = exepath('python3')
 filetype off                  " required
+let $SHELL = '/bin/bash'
 set shell=/bin/bash
 
 if empty(glob('~/.vim/autoload/plug.vim'))
