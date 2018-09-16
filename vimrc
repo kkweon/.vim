@@ -279,6 +279,7 @@ nnoremap <Leader>gb <C-o>
 nnoremap <Leader>gf :call MoEditByGitFiles(expand('<cword>'))<cr>
 nnoremap <Leader>ef :YcmCompleter FixIt<cr>
 nnoremap <Leader>rr :YcmCompleter RefactorRename<space>
+nnoremap <Leader>yy :YcmCompleter<space>
 
 " LanguageServer
 nnoremap <Leader>ll :call LanguageClient_contextMenu()<CR>
