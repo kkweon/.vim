@@ -25,6 +25,14 @@ command! -bang -nargs=* Rg
             \           : fzf#vim#with_preview('right:50%:hidden', '?'),
             \   <bang>0)
 nnoremap <Leader>ps :Rg<cr>
+Plug 'ctrlpvim/ctrlp.vim'
+let g:ctrlp_user_command = {
+            \ 'types': {
+            \ 1: ['.git', 'cd %s && git ls-files'],
+            \ },
+            \ 'fallback': 'fd %s -type f'
+            \ }
+Plug 'jiangmiao/auto-pairs'
 Plug 'yggdroot/indentline'
 Plug 'dag/vim-fish'
 Plug 'easymotion/vim-easymotion'
@@ -174,6 +182,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'ervandew/supertab'
 " Vim plugin for intensely orgasmic commenting
 Plug 'scrooloose/nerdcommenter'
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
 
 " Surround.vim is all about "surroundings": parentheses, brackets, quotes, XML
 " tags, and more. The plugin provides mappings to easily delete, change and
