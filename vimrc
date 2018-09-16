@@ -25,6 +25,7 @@ command! -bang -nargs=* Rg
             \           : fzf#vim#with_preview('right:50%:hidden', '?'),
             \   <bang>0)
 nnoremap <Leader>ps :Rg<cr>
+Plug 'yggdroot/indentline'
 Plug 'dag/vim-fish'
 Plug 'easymotion/vim-easymotion'
 Plug 'editorconfig/editorconfig-vim'
