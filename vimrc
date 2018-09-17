@@ -272,6 +272,8 @@ endfunction
 function! MoToggleNERDTree(command)
     if s:IsNerdTreeEnabled()
         NERDTreeClose
+    elseif expand('%') == ''
+        NERDTreeToggle
     else
         " Else execute a command
         execute a:command
