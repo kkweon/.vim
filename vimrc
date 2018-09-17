@@ -26,13 +26,6 @@ command! -bang -nargs=* Rg
             \           : fzf#vim#with_preview('right:50%:hidden', '?'),
             \   <bang>0)
 nnoremap <Leader>ps :Rg<cr>
-Plug 'ctrlpvim/ctrlp.vim'
-let g:ctrlp_user_command = {
-            \ 'types': {
-            \ 1: ['.git', 'cd %s && git ls-files'],
-            \ },
-            \ 'fallback': 'fd %s -type f'
-            \ }
 Plug 'jiangmiao/auto-pairs'
 Plug 'yggdroot/indentline'
 Plug 'dag/vim-fish'
@@ -269,11 +262,18 @@ nnoremap <Leader>ev :vsplit $MYVIMRC<cr> :execute 'lcd ' . fnamemodify($MYVIMRC,
 nnoremap <Leader>sv :source $MYVIMRC<cr>
 " Close Buffer
 nnoremap <Leader>bd :bd<cr>
+
+function! s:IsNerdTreeEnabled()
+    " Returns 1 if NERDTree already exists
+    return exists('t:NERDTreeBufName') && bufwinnr(t:NERDTreeBufName) != -1
+endfunction
 " Open NERD Tree
+"
 function! MoToggleNERDTree(command)
-    if expand('%') =~ 'NERD' || expand('%') == ''
-        execute 'NERDTreeToggle'
+    if s:IsNerdTreeEnabled()
+        NERDTreeClose
     else
+        " Else execute a command
         execute a:command
     endif
 endfunction
@@ -282,7 +282,7 @@ endfunction
 nnoremap <Leader>bb :Buffers<cr>
 
 nnoremap <Leader>ft :call MoToggleNERDTree('NERDTree %')<cr>
-nnoremap <Leader>pt :NERDTreeToggle<space>
+nnoremap <Leader>pt :call MoToggleNERDTree('NERDTree')<cr>
 " Run FZF
 nnoremap <Leader>pf :Files<cr>
 
