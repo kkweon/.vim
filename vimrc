@@ -7,6 +7,7 @@ let g:python3_host_prog = exepath('python3')
 filetype off                  " required
 let $SHELL = '/bin/bash'
 set shell=/bin/bash
+set runtimepath+=~/.vim
 
 if empty(glob('~/.vim/autoload/plug.vim'))
     silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -84,9 +85,10 @@ let g:deoplete#enable_at_startup = 1
 Plug 'sirver/ultisnips'
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 " This is equivalent to <C-/>
-let g:UltiSnipsExpandTrigger = "<C-_>"
+let g:UltiSnipsExpandTrigger = '<C-_>'
 " If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit = "vertical"
+let g:UltiSnipsEditSplit = 'vertical'
+let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
 " Snippets are separated from the engine. Add this if you want them:
 Plug 'honza/vim-snippets'
 " Sometimes, it's useful to line up text. It's nicer to have the computer do this for you
