@@ -29,6 +29,7 @@ command! -bang -nargs=* Rg
 nnoremap <Leader>ps :Rg<cr>
 Plug 'jiangmiao/auto-pairs'
 Plug 'yggdroot/indentline'
+let g:indentLine_setConceal = 0
 Plug 'dag/vim-fish'
 Plug 'easymotion/vim-easymotion'
 Plug 'editorconfig/editorconfig-vim'
@@ -159,7 +160,7 @@ Plug 'mxw/vim-jsx'
 Plug 'prettier/vim-prettier'
 " Manually control using filetype_js
 let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx PrettierAsync
 " TypeScript
 Plug 'leafgarland/typescript-vim', { 'for': ['javascript', 'typescript'] }
 " git repos on your local machine (i.e. when working on your own plugin)
