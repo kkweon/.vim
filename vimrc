@@ -29,7 +29,8 @@ command! -bang -nargs=* Rg
 nnoremap <Leader>ps :Rg<cr>
 Plug 'jiangmiao/auto-pairs'
 Plug 'yggdroot/indentline'
-let g:indentLine_setConceal = 0
+Plug 'elzr/vim-json'
+let g:vim_json_syntax_conceal = 0
 Plug 'dag/vim-fish'
 Plug 'easymotion/vim-easymotion'
 Plug 'editorconfig/editorconfig-vim'
