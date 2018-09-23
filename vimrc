@@ -2,6 +2,7 @@
 " PLUGINS
 " ==============================
 set nocompatible              " be iMproved, required
+set termguicolors
 " the path to python3 is obtained through executing `:echo exepath('python3')` in vim
 let g:python3_host_prog = exepath('python3')
 filetype off                  " required
@@ -262,8 +263,13 @@ augroup END
 " ==============================
 let mapleader = " "
 """ CUSTOM FUNCTIONS
-nnoremap <Leader>ev :vsplit $MYVIMRC<cr> :execute 'lcd ' . fnamemodify($MYVIMRC, ':p:h')<cr>
-nnoremap <Leader>sv :source $MYVIMRC<cr>
+if has("nvim")
+    nnoremap <Leader>ev :vsplit ~/.vim/vimrc<cr> :execute 'lcd ~/.vim'<cr>
+    nnoremap <Leader>sv :source ~/.vim/vimrc<cr>
+else
+    nnoremap <Leader>ev :vsplit $MYVIMRC<cr> :execute 'lcd ' . fnamemodify($MYVIMRC, ':p:h')<cr>
+    nnoremap <Leader>sv :source $MYVIMRC<cr>
+end
 " Close Buffer
 nnoremap <Leader>bd :bd<cr>
 
@@ -320,3 +326,6 @@ nnoremap <Leader>tT :TagbarToggle<cr>
 command! -nargs=1 MoToggleFileByExtension :call MoToggleFileByExtension('<args>')
 nnoremap <Leader>te :MoToggleFileByExtension<space>
 command! MoExecute execute "read !" . getline('.')
+
+" Terminal Keybindings
+tnoremap <Esc> <C-\><C-n>
