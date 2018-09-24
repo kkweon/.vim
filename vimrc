@@ -242,7 +242,7 @@ augroup END
 
 augroup filetype_html
     au!
-    autocmd FileType html setlocal formatprg=html-beautify
+    autocmd FileType html,htmlcheetah setlocal formatprg=html-beautify
 augroup END
 
 " Haskell Support
