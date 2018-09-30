@@ -1,3 +1,18 @@
 snippet lang "{-# LANGUAGE WHATEVER #-}" b
-	{-# LANGUAGE $1 #-}
+{-# LANGUAGE $1 #-}
+endsnippet
+
+snippet haddock-module "Haddock Module"
+{-|
+Module      : ${1:Some Module Name}
+Description : Short description
+Copyright   : (c) Mo Kweon
+License     : ${2:MIT}
+Maintainer  : kkweon@gmail.com
+Stability   : experimental
+Portability : POSIX
+
+${3:Here is a longer description of this module, containing some
+commentary with @some markup@.}
+-}
 endsnippet

@@ -88,7 +88,7 @@ let g:deoplete#enable_at_startup = 1
 Plug 'sirver/ultisnips'
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 " This is equivalent to <C-/>
-let g:UltiSnipsExpandTrigger = '<C-_>'
+let g:UltiSnipsExpandTrigger = '<C-y><C-y>'
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit = 'vertical'
 let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
