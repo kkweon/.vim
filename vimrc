@@ -230,6 +230,11 @@ augroup global_whitespace_fix
     autocmd BufWritePre * :call TrimEndLines()
 augroup END
 
+augroup filetype_py
+    au!
+    au FileType python setlocal formatprg=yapf
+augroup END
+
 augroup filetype_js
     au!
     au FileType javascript,typescript,html,htmlcheetah nnoremap <buffer> <LocalLeader>tt :call MoToggleViewFile()<cr>
