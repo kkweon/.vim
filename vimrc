@@ -28,6 +28,14 @@ command! -bang -nargs=* Rg
             \           : fzf#vim#with_preview('right:50%:hidden', '?'),
             \   <bang>0)
 nnoremap <Leader>ps :Rg<cr>
+
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
+" Scala
+" For ensime, http://ensime.github.io/editors/vim/install/
+Plug 'ensime/ensime-vim', { 'do': ':UpdateRemotePlugins' }
+Plug 'derekwyatt/vim-scala'
+
 Plug 'jiangmiao/auto-pairs'
 Plug 'yggdroot/indentline'
 Plug 'elzr/vim-json'
@@ -238,6 +246,12 @@ augroup END
 augroup filetype_js
     au!
     au FileType javascript,typescript,html,htmlcheetah nnoremap <buffer> <LocalLeader>tt :call MoToggleViewFile()<cr>
+augroup END
+
+augroup filetype_scala
+    au!
+    au BufWritePost *.scala :EnTypeCheck
+    au FileType scala nnoremap <buffer> <leader>gd :EnDeclaration<cr>
 augroup END
 
 augroup filetype_fish
