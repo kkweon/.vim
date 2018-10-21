@@ -270,7 +270,7 @@ augroup filetype_haskell
     autocmd!
     "autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
     autocmd FileType haskell setlocal formatprg=stylish-haskell
-    autocmd FileType haskell setlocal equalprg=hindent
+    autocmd FileType haskell setlocal equalprg=brittany
 augroup END
 
 augroup filetype_markdown
