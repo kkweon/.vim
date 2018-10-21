@@ -148,6 +148,7 @@ let g:ycm_semantic_triggers = {
 
 " Markdown
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
+let g:vim_markdown_conceal = 0
 " Trailing Whitespace
 Plug 'bronson/vim-trailing-whitespace'
 " Multi Cursor
