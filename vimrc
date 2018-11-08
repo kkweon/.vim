@@ -249,6 +249,11 @@ augroup filetype_js
     au FileType javascript,typescript,html,htmlcheetah nnoremap <buffer> <LocalLeader>tt :call MoToggleViewFile()<cr>
 augroup END
 
+augroup filetype_reason
+    au!
+    au FileType reason setlocal equalprg=refmt
+augroup END
+
 augroup filetype_scala
     au!
     au BufWritePost *.scala :EnTypeCheck
