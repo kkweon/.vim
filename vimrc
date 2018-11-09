@@ -9,6 +9,7 @@ filetype off                  " required
 let $SHELL = '/bin/bash'
 set shell=/bin/bash
 set runtimepath+=~/.vim
+set relativenumber
 
 if empty(glob('~/.vim/autoload/plug.vim'))
     silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
