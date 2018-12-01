@@ -31,6 +31,7 @@ command! -bang -nargs=* Rg
 nnoremap <Leader>ps :Rg<cr>
 
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+autocmd BufNewFile,BufRead *.gohtml setlocal filetype=html
 
 " Scala
 " For ensime, http://ensime.github.io/editors/vim/install/
@@ -125,27 +126,6 @@ let g:ale_fixers = {
             \ 'javascript': ['prettier', 'eslint'],
             \ 'typescript': ['prettier', 'tslint']
             \}
-
-"Plug 'scrooloose/syntastic'
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
-"let g:syntastic_javascript_checkers = ['eslint']
-"let g:syntastic_html_checkers = []
-"" manually disable Syntastic Java diagnostics.
-"let g:syntastic_java_checkers = []
-
-" You complete me
-Plug 'valloric/youcompleteme'
-let g:ycm_always_populate_location_list = 1
-let g:ycm_semantic_triggers = {
-            \ 'elm' : ['.'],
-            \ 'haskell': ['.'],
-            \ }
 
 " Markdown
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
@@ -325,13 +305,8 @@ nnoremap <Leader>pt :call MoToggleNERDTree('NERDTree')<cr>
 nnoremap <Leader>pf :Files<cr>
 
 """ YCMD Keybindings
-nnoremap <Leader>gg :YcmCompleter GoTo<cr>
-nnoremap <Leader>gd :YcmCompleter GoToDefinition<cr>
 nnoremap <Leader>gb <C-o>
 nnoremap <Leader>gf :call MoEditByGitFiles(expand('<cword>'))<cr>
-nnoremap <Leader>ef :YcmCompleter FixIt<cr>
-nnoremap <Leader>rr :YcmCompleter RefactorRename<space>
-nnoremap <Leader>yy :YcmCompleter<space>
 
 " LanguageServer
 nnoremap <Leader>ll :call LanguageClient_contextMenu()<CR>
