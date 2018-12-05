@@ -168,8 +168,6 @@ Plug 'flazz/vim-colorschemes'
 " nerd tree
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
-" Perform all your vim insert mode completions with Tab
-Plug 'ervandew/supertab'
 " Vim plugin for intensely orgasmic commenting
 Plug 'scrooloose/nerdcommenter'
 " Add spaces after comment delimiters by default
@@ -199,6 +197,7 @@ set shiftwidth=4
 set autoindent     " turns it on
 set smartindent    " does the right thing (mostly) in programs
 set encoding=utf-8 " utf-8 always
+set textwidth=0    " No text wrap
 " Search Related
 set ignorecase " case insensitive
 set smartcase  " use case if any caps used
