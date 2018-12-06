@@ -203,6 +203,8 @@ set ignorecase " case insensitive
 set smartcase  " use case if any caps used
 set incsearch  " show match as search proceeds
 set hlsearch   " search highlighting
+" Autocompletions
+set completeopt=longest,menuone,preview
 " ETC
 syntax enable
 set nobackup   " Do not create backup files
