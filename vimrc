@@ -275,6 +275,13 @@ augroup filetype_markdown
     autocmd FileType markdown setlocal nofoldenable
 augroup END
 
+augroup filetype_nix
+    autocmd!
+    autocmd BufNewFile,BufRead *.nix setlocal filetype=nix
+    autocmd BufNewFile,BufRead *.nix setlocal tabstop=2
+    autocmd BufNewFile,BufRead *.nix setlocal shiftwidth=2
+augroup END
+
 " ==============================
 " KEYBINDINGS
 " ==============================
