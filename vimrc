@@ -32,6 +32,10 @@ nnoremap <Leader>ps :Rg<cr>
 
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 autocmd BufNewFile,BufRead *.gohtml setlocal filetype=html
+let g:go_metalinter_enabled = 1
+
+" Rust
+Plug 'racer-rust/vim-racer'
 
 " Scala
 " For ensime, http://ensime.github.io/editors/vim/install/
@@ -81,6 +85,7 @@ let g:LanguageClient_serverCommands = {
     \ 'reason': ['~/.vim/bin/reason-language-server.exe'],
     \ 'css': ['css-languageserver', '--stdio'],
     \ 'haskell': ['hie-wrapper'],
+    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
     \ }
 
 " for neovim
@@ -250,6 +255,11 @@ augroup END
 augroup filetype_html
     au!
     autocmd FileType html,htmlcheetah setlocal formatprg=html-beautify
+augroup END
+
+augroup filetype_rust
+    au!
+    au FileType rust setlocal equalprg=rustfmt
 augroup END
 
 " Haskell Support
