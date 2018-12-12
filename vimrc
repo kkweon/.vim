@@ -6,8 +6,8 @@ set termguicolors
 " the path to python3 is obtained through executing `:echo exepath('python3')` in vim
 let g:python3_host_prog = exepath('python3')
 filetype off                  " required
-let $SHELL = '/bin/bash'
-set shell=/bin/bash
+let $SHELL = 'bash'
+set shell=bash
 set runtimepath+=~/.vim
 set relativenumber
 
