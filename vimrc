@@ -85,7 +85,7 @@ let g:LanguageClient_serverCommands = {
     \ 'reason': ['~/.vim/bin/reason-language-server.exe'],
     \ 'css': ['css-languageserver', '--stdio'],
     \ 'haskell': ['hie-wrapper'],
-    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+    \ 'rust': ['rls'],
     \ }
 
 " for neovim
