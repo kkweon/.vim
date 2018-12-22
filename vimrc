@@ -282,6 +282,11 @@ augroup filetype_nix
     autocmd BufNewFile,BufRead *.nix setlocal shiftwidth=2
 augroup END
 
+augroup filetype_yaml
+    autocmd!
+    autocmd FileType yaml setlocal shiftwidth=2 tabstop=2
+augroup END
+
 " ==============================
 " KEYBINDINGS
 " ==============================
