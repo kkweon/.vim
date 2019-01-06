@@ -83,7 +83,8 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ }
 let g:LanguageClient_serverCommands = {
     \ 'reason': ['~/.vim/bin/reason-language-server.exe'],
-    \ 'css': ['css-languageserver', '--stdio'],
+    \ 'typescript': ['typescript-language-server', '--stdio'],
+    \ 'css': ['css-language-server', '--stdio'],
     \ 'haskell': ['hie-wrapper'],
     \ 'rust': ['rls'],
     \ }
@@ -159,6 +160,7 @@ Plug 'prettier/vim-prettier'
 let g:prettier#autoformat = 0
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx PrettierAsync
 " TypeScript
+Plug 'Quramy/tsuquyomi' " for auto import until LS supports it
 Plug 'leafgarland/typescript-vim', { 'for': ['javascript', 'typescript'] }
 " git repos on your local machine (i.e. when working on your own plugin)
 " Plug 'file:///home/gmarik/path/to/plugin'
