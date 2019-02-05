@@ -5,6 +5,11 @@ set nocompatible              " be iMproved, required
 set termguicolors
 " the path to python3 is obtained through executing `:echo exepath('python3')` in vim
 let g:python3_host_prog = exepath('python3')
+
+if executable('nvim-python3')
+    let g:python3_host_prog = exepath('nvim-python3')
+endif
+
 filetype off                  " required
 let $SHELL = 'bash'
 set shell=bash
