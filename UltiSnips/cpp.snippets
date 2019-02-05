@@ -1,0 +1,25 @@
+snippet cppio "C++ Competitive Programming FastIO"
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(int argc, char *argv[])
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+	$0
+    return 0;
+}
+endsnippet
+
+snippet print "Print Macro for CP"
+#define print(x) \
+    std::cout << #x <<  " = " << x << std::endl;
+endsnippet
+
+snippet printArr "Print Array Macro for CP"
+#define printArr(xs) \
+    std::cout << #xs << " = [ "; \
+    for (auto it = std::begin((xs)); it != std::end((xs)); ++it) \
+        std::cout << *it <<  " "; \
+    std::cout << "]\n";
+endsnippet
