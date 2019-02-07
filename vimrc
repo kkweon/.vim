@@ -294,6 +294,11 @@ augroup filetype_yaml
     autocmd FileType yaml setlocal shiftwidth=2 tabstop=2 equalprg=prettier\ --parser=yaml\ --stdin
 augroup END
 
+augroup filetype_cpp
+    autocmd!
+    autocmd FileType cpp setlocal shiftwidth=2 tabstop=2 equalprg=clang-format
+augroup END
+
 " ==============================
 " KEYBINDINGS
 " ==============================
