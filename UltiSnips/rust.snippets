@@ -1,0 +1,27 @@
+snippet maincp "Main CP Setup"
+use std::io::BufRead;
+/*
+// uncomment when submitting
+use std::alloc::System;
+
+#[global_allocator]
+static GLOBAL: System = System;
+*/
+
+#[allow(non_snake_case)]
+pub fn main() {
+    let mut line = String::new();
+    let stdin = std::io::stdin();
+    let mut stdin = stdin.lock();
+
+    stdin.read_line(&mut line).unwrap();
+
+    let T = line.trim().parse::<u32>().unwrap();
+
+    for _ in 0..T {
+        line.clear();
+        stdin.read_line(&mut line).unwrap();
+		$0
+    }
+}
+endsnippet
