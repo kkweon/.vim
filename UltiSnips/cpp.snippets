@@ -10,13 +10,13 @@ int main(int argc, char* argv[]) {
 }
 endsnippet
 
-snippet print "Print Macro for CP"
-#define print(x) \
+snippet DEBUG "Print Macro for CP"
+#define DEBUG(x) \
     std::cout << #x <<  " = " << x << std::endl;
 endsnippet
 
-snippet printArr "Print Array Macro for CP"
-#define printArr(xs) \
+snippet DEBUG_XS "Print Array Macro for CP"
+#define DEBUG_XS(xs) \
     std::cout << #xs << " = [ "; \
     for (auto it = std::begin((xs)); it != std::end((xs)); ++it) \
         std::cout << *it <<  " "; \
