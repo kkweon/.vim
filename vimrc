@@ -235,7 +235,7 @@ augroup END
 
 augroup filetype_py
     au!
-    au FileType python setlocal formatprg=black\ -
+    au FileType python setlocal formatprg=black\ -q\ -
 augroup END
 
 augroup filetype_js
