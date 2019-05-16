@@ -238,6 +238,11 @@ augroup filetype_py
     au FileType python setlocal formatprg=black\ -q\ -
 augroup END
 
+augroup filetype_proto
+    au!
+    au FileType proto setlocal formatprg=clang-format
+augroup END
+
 augroup filetype_js
     au!
     au FileType javascript,typescript,html,htmlcheetah nnoremap <buffer> <LocalLeader>tt :call MoToggleViewFile()<cr>
