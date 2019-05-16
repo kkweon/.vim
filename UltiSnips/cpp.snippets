@@ -1,3 +1,17 @@
+snippet debug "DEBUG Snippet"
+template <class TH>
+void _dbg(const char *sdbg, TH h) {
+  cerr << sdbg << " = " << h << endl;
+}
+template <class TH, class... TA>
+void _dbg(const char *sdbg, TH h, TA... a) {
+  while (*sdbg != ',') cerr << *sdbg++;
+  cerr << " = " << h << " |";
+  _dbg(sdbg + 1, a...);
+}
+#define debug(...) _dbg(#__VA_ARGS__, __VA_ARGS__)
+endsnippet
+
 snippet for "For loop snippet"
 #define FOR(i, l, r) for (int (i) = (l); (i) < (r); ++(i))
 endsnippet
