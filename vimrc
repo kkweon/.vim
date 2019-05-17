@@ -74,7 +74,6 @@ Plug 'shougo/vimproc.vim', {'do' : 'make'}
 Plug 'raichoo/purescript-vim'
 Plug 'frigoeu/psc-ide-vim'
 
-
 " Elm Support
 Plug 'elmcast/elm-vim', { 'for': 'elm' }
 " elm
@@ -88,7 +87,6 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ }
 let g:LanguageClient_serverCommands = {
     \ 'reason': ['~/.vim/bin/reason-language-server.exe'],
-    \ 'typescript': ['typescript-language-server', '--stdio'],
     \ 'css': ['css-language-server', '--stdio'],
     \ 'haskell': ['hie-wrapper'],
     \ 'rust': ['rls'],
@@ -123,6 +121,9 @@ Plug 'hail2u/vim-css3-syntax', { 'for': ['css', 'less', 'scss'] }
 Plug 'mattn/emmet-vim'
 let g:user_emmet_settings = {
             \  'javascript.jsx' : {
+            \      'extends' : 'jsx',
+            \  },
+            \  'typescript' : {
             \      'extends' : 'jsx',
             \  },
             \}
@@ -167,6 +168,7 @@ autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx PrettierAsync
 " TypeScript
 Plug 'Quramy/tsuquyomi' " for auto import until LS supports it
 Plug 'leafgarland/typescript-vim', { 'for': ['javascript', 'typescript'] }
+Plug 'maxmellon/vim-jsx-pretty'
 " git repos on your local machine (i.e. when working on your own plugin)
 " Plug 'file:///home/gmarik/path/to/plugin'
 " The sparkup vim script is in a subdirectory of this repo called vim.
