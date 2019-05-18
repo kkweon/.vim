@@ -15,6 +15,7 @@ let $SHELL = 'bash'
 set shell=bash
 set runtimepath+=~/.vim
 set relativenumber
+let mapleader = " "
 
 if empty(glob('~/.vim/autoload/plug.vim'))
     silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -34,6 +35,18 @@ command! -bang -nargs=* Rg
             \           : fzf#vim#with_preview('right:50%:hidden', '?'),
             \   <bang>0)
 nnoremap <Leader>ps :Rg<cr>
+
+Plug 'Shougo/denite.nvim'
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
+inoremap <silent><expr> <c-space> coc#refresh()
+nmap <Leader>rn <Plug>(coc-rename)
+nmap <Leader>ac <Plug>(coc-codeaction)
+nmap <Leader>qf <Plug>(coc-fix-current)
+
+nmap <silent> gd <Plug>(coc-definitions)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 autocmd BufNewFile,BufRead *.gohtml setlocal filetype=html
@@ -250,6 +263,15 @@ augroup filetype_js
     au FileType javascript,typescript,html,htmlcheetah nnoremap <buffer> <LocalLeader>tt :call MoToggleViewFile()<cr>
 augroup END
 
+
+augroup filetype_typescript
+    au!
+    autocmd BufNewFile,BufRead *.tsx setlocal filetype=typescript.tsx
+    au FileType typescript nnoremap <buffer> <leader>ef :TsuReload<cr> :TsuImport<cr>
+    au FileType typescript nnoremap <buffer> <leader>er :TsuReload<cr>
+    au FileType typescript nnoremap <buffer> <leader>gd :TsuReload<cr> :TsuDefinition<cr>
+augroup END
+
 augroup filetype_java
     au!
     au FileType java setlocal equalprg=google-java-format\ -
@@ -311,10 +333,10 @@ augroup filetype_cpp
     autocmd FileType cpp setlocal shiftwidth=2 tabstop=2 equalprg=clang-format
 augroup END
 
+
 " ==============================
 " KEYBINDINGS
 " ==============================
-let mapleader = " "
 """ CUSTOM FUNCTIONS
 if has("nvim")
     nnoremap <Leader>ev :vsplit ~/.vim/vimrc<cr> :execute 'lcd ~/.vim'<cr>
