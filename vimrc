@@ -15,7 +15,8 @@ let $SHELL = 'bash'
 set shell=bash
 set runtimepath+=~/.vim
 set relativenumber
-let mapleader = " "
+let mapleader = ' '
+let localleader = ','
 
 if empty(glob('~/.vim/autoload/plug.vim'))
     silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -68,7 +69,9 @@ Plug 'dag/vim-fish'
 Plug 'easymotion/vim-easymotion'
 Plug 'editorconfig/editorconfig-vim'
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
-
+Plug 'liuchengxu/vim-which-key'
+nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
+nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
 Plug 'python-mode/python-mode', { 'branch': 'develop' }
 let g:pymode_python = 'python3'
 " Shell Format
