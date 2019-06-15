@@ -180,7 +180,7 @@ Plug 'mxw/vim-jsx'
 Plug 'prettier/vim-prettier'
 " Manually control using filetype_js
 let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx PrettierAsync
+
 " TypeScript
 Plug 'Quramy/tsuquyomi' " for auto import until LS supports it
 Plug 'leafgarland/typescript-vim', { 'for': ['javascript', 'typescript'] }
@@ -263,6 +263,7 @@ augroup END
 
 augroup filetype_js
     au!
+    autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
     au FileType javascript,typescript,html,htmlcheetah nnoremap <buffer> <LocalLeader>tt :call MoToggleViewFile()<cr>
 augroup END
 
