@@ -38,7 +38,7 @@ command! -bang -nargs=* Rg
 nnoremap <Leader>ps :Rg<cr>
 
 Plug 'Shougo/denite.nvim'
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
+Plug 'neoclide/coc.nvim', {'tag': '*'}
 inoremap <silent><expr> <c-space> coc#refresh()
 nmap <Leader>rn <Plug>(coc-rename)
 nmap <Leader>ac <Plug>(coc-codeaction)
@@ -335,6 +335,7 @@ augroup END
 augroup filetype_cpp
     autocmd!
     autocmd FileType cpp setlocal shiftwidth=2 tabstop=2 equalprg=clang-format
+    autocmd BufNewFile,BufRead BUILD,*.BUILD,WORKSPACE,*.bzl setlocal equalprg=buildifier
 augroup END
 
 
