@@ -38,7 +38,7 @@ command! -bang -nargs=* Rg
 nnoremap <Leader>ps :Rg<cr>
 
 Plug 'Shougo/denite.nvim'
-Plug 'neoclide/coc.nvim', {'tag': '*'}
+Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
 inoremap <silent><expr> <c-space> coc#refresh()
 nmap <Leader>rn <Plug>(coc-rename)
 nmap <Leader>ac <Plug>(coc-codeaction)
