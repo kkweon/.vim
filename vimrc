@@ -108,15 +108,6 @@ let g:LanguageClient_serverCommands = {
     \ 'rust': ['rls'],
     \ }
 
-" for neovim
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" for vim 8 with python
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
 " enable autocomplete
 let g:deoplete#enable_at_startup = 1
 " Snippets
