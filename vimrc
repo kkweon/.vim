@@ -289,6 +289,7 @@ augroup END
 augroup filetype_java
     au!
     au FileType java setlocal equalprg=google-java-format\ -
+    au FileType java setlocal shiftwidth=2 tabstop=2
 augroup END
 
 augroup filetype_reason
@@ -347,7 +348,6 @@ augroup filetype_cpp
     autocmd FileType cpp setlocal shiftwidth=2 tabstop=2 equalprg=clang-format
     autocmd BufNewFile,BufRead BUILD,*.BUILD,WORKSPACE,*.bzl setlocal equalprg=buildifier
 augroup END
-
 
 " ==============================
 " KEYBINDINGS
