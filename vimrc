@@ -118,9 +118,6 @@ let g:LanguageClient_serverCommands = {
     \ 'haskell': ['hie-wrapper'],
     \ 'rust': ['rls'],
     \ }
-
-" enable autocomplete
-let g:deoplete#enable_at_startup = 1
 " Snippets
 Plug 'sirver/ultisnips'
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
