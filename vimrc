@@ -230,6 +230,7 @@ set autoindent     " turns it on
 set smartindent    " does the right thing (mostly) in programs
 set encoding=utf-8 " utf-8 always
 set textwidth=0    " No text wrap
+set wildignorecase " Ignore case in wildmenu
 " Better display for messages
 set cmdheight=2
 " You will have bad experience for diagnostic messages when it's default 4000.
