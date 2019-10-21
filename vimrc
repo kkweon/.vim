@@ -61,7 +61,6 @@ function! s:show_documentation()
 endfunction
 
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-autocmd BufNewFile,BufRead *.gohtml setlocal filetype=html
 let g:go_metalinter_enabled = 1
 
 " Rust
@@ -273,6 +272,7 @@ endfunction
 augroup filetype_custom
     autocmd!
     autocmd FileType denite call s:denite_my_settings()
+    autocmd BufNewFile,BufRead *.gohtml setlocal filetype=html
 augroup END
 
 augroup global_whitespace_fix
