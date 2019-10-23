@@ -431,16 +431,5 @@ command! -nargs=1 MoToggleFileByExtension :call MoToggleFileByExtension('<args>'
 nnoremap <Leader>te :MoToggleFileByExtension<space>
 command! MoExecute execute "read !" . getline('.')
 
-
-" Coc Setup
-function! s:CocSetupCommandAbbrs(from, to)
-  exec 'cnoreabbrev <expr> '.a:from
-        \ .' ((getcmdtype() ==# ":" && getcmdline() ==# "'.a:from.'")'
-        \ .'? ("'.a:to.'") : ("'.a:from.'"))'
-endfunction
-
-" Use C to open coc config
-command! CocOpenConfig call s:CocSetupCommandAbbrs('C', 'CocConfig')
-
 " Terminal Keybindings
 tnoremap <Esc> <C-\><C-n>
