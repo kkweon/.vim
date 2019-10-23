@@ -107,16 +107,6 @@ let g:elm_syntastic_show_warnings = 1
 let g:elm_detailed_complete = 1
 " ReasonML Support
 Plug 'reasonml-editor/vim-reason-plus', { 'for': 'reason' }
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
-let g:LanguageClient_serverCommands = {
-    \ 'reason': ['~/.vim/bin/reason-language-server.exe'],
-    \ 'css': ['css-language-server', '--stdio'],
-    \ 'haskell': ['hie-wrapper'],
-    \ 'rust': ['rls'],
-    \ }
 " Snippets
 Plug 'sirver/ultisnips'
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
