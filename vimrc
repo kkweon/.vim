@@ -1,6 +1,3 @@
-" ==============================
-" PLUGINS
-" ==============================
 set nocompatible              " be iMproved, required
 set termguicolors
 " the path to python3 is obtained through executing `:echo exepath('python3')` in vim
@@ -18,6 +15,7 @@ set relativenumber
 let mapleader = ' '
 let localleader = ','
 
+" Plug {{{
 if empty(glob('~/.vim/autoload/plug.vim'))
     silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
                 \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -37,29 +35,10 @@ command! -bang -nargs=* Rg
             \   <bang>0)
 nnoremap <Leader>ps :Rg<cr>
 
+Plug 'junegunn/vader.vim'
+Plug 'google/vim-maktaba'
+Plug 'bazelbuild/vim-bazel'
 Plug 'Shougo/denite.nvim'
-Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
-inoremap <silent><expr> <c-space> coc#refresh()
-nmap <Leader>rn <Plug>(coc-rename)
-nmap <Leader>ac <Plug>(coc-codeaction)
-nmap <Leader>qf <Plug>(coc-fix-current)
-
-nmap <silent> gd <Plug>(coc-definitions)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-" Use K to show documentation in preview window
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 let g:go_metalinter_enabled = 1
 
@@ -148,11 +127,6 @@ Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 let g:vim_markdown_conceal = 0
 " Trailing Whitespace
 Plug 'bronson/vim-trailing-whitespace'
-" Multi Cursor
-Plug 'terryma/vim-multiple-cursors'
-if !has('gui_running')
-    map ˜ <A-n>
-endif
 " FZF
 " If installed using git
 set rtp+=~/.fzf
@@ -198,17 +172,17 @@ Plug 'tpope/vim-surround'
 
 filetype plugin indent on                   " required!
 call plug#end()
-
-" ==============================
-" FUNCTION
-" ==============================
+"}}}
+" Loading functions.{{{
 source ~/.vim/functions.vim
 
-" ==============================
-" EDITOR
-" ==============================
+if &rtp=~'vader'
+    command! VaderCurrent source % <BAR> Vader %:p:r.vader
+endif
+"}}}
+" EDITOR 'set's{{{
 set nowrap         " NO WRAP
-set number         " Set Line number
+set relativenumber " Set Line number
 set expandtab
 set tabstop=4
 set shiftwidth=4
@@ -239,10 +213,9 @@ set nobackup   " Do not create backup files
 set noswapfile " Do not create swap files
 " THEME
 colorscheme Monokai
-
-" ==============================
-" AUTO COMMANDS
-" ==============================
+"}}}
+" AUTO COMMANDS{{{
+"
 " Define mappings
 function! s:denite_my_settings() abort
   nnoremap <silent><buffer><expr> <CR>
@@ -258,7 +231,7 @@ function! s:denite_my_settings() abort
   nnoremap <silent><buffer><expr> <Space>
   \ denite#do_map('toggle_select').'j'
 endfunction
-
+" filetype begins{{{
 augroup filetype_custom
     autocmd!
     autocmd FileType denite call s:denite_my_settings()
@@ -357,10 +330,8 @@ augroup filetype_cpp
     autocmd FileType cpp setlocal shiftwidth=2 tabstop=2 equalprg=clang-format
     autocmd BufNewFile,BufRead BUILD,*.BUILD,WORKSPACE,*.bzl setlocal equalprg=buildifier
 augroup END
-
-" ==============================
-" KEYBINDINGS
-" ==============================
+"}}}}}}
+" KEYBINDINGS{{{
 """ CUSTOM FUNCTIONS
 if has("nvim")
     nnoremap <Leader>ev :vsplit ~/.vim/vimrc<cr> :execute 'lcd ~/.vim'<cr>
@@ -369,8 +340,6 @@ else
     nnoremap <Leader>ev :vsplit $MYVIMRC<cr> :execute 'lcd ' . fnamemodify($MYVIMRC, ':p:h')<cr>
     nnoremap <Leader>sv :source $MYVIMRC<cr>
 end
-" Close Buffer
-nnoremap <Leader>bd :bd<cr>
 
 function! s:IsNerdTreeEnabled()
     " Returns 1 if NERDTree already exists
@@ -389,37 +358,31 @@ function! MoToggleNERDTree(command)
     endif
 endfunction
 
-" B
+" [b]uffer{{{
 nnoremap <Leader>bb :Buffers<cr>
-
+" Close Buffer
+nnoremap <Leader>bd :bd<cr>
+"}}}
+" [f]ile {{{
 nnoremap <Leader>ft :call MoToggleNERDTree('NERDTree %')<cr>
+" }}}
+" [p]roject {{{
 nnoremap <Leader>pt :call MoToggleNERDTree('NERDTree')<cr>
 " Run FZF
 nnoremap <Leader>pf :Files<cr>
-
-""" YCMD Keybindings
-nnoremap <Leader>gb <C-o>
-nnoremap <Leader>gf :call MoEditByGitFiles(expand('<cword>'))<cr>
-
-" LanguageServer
-nnoremap <Leader>ll :call LanguageClient_contextMenu()<CR>
-" Or map each action separately
-nnoremap <Leader>lh :call LanguageClient#textDocument_hover()<CR>
-nnoremap <Leader>lgd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <Leader>lb :call LanguageClient#textDocument_references()<CR>
-nnoremap <Leader>la :call LanguageClient#textDocument_codeAction()<CR>
-nnoremap <Leader>ls :call LanguageClient#textDocument_documentSymbol()<CR>
-nnoremap <Leader>lr :call LanguageClient#textDocument_rename()<CR>
-
+"}}}
+" [b]uffer {{{
 " Delete all content in a buffer
 nnoremap <Leader>be ggVGx
 nnoremap <Leader>by m'gg"*yG''
-
-" t
+" }}}
+" [t]oggle{{{
 nnoremap <Leader>tT :TagbarToggle<cr>
 command! -nargs=1 MoToggleFileByExtension :call MoToggleFileByExtension('<args>')
 nnoremap <Leader>te :MoToggleFileByExtension<space>
 command! MoExecute execute "read !" . getline('.')
-
-" Terminal Keybindings
+"}}}
+" Terminal Keybindings{{{
 tnoremap <Esc> <C-\><C-n>
+"}}}
+"}}}
