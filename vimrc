@@ -35,9 +35,41 @@ command! -bang -nargs=* Rg
             \   <bang>0)
 nnoremap <Leader>ps :Rg<cr>
 
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+" Coc Settings BEGIN
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> <leader>ep <Plug>(coc-diagnostic-prev)
+nmap <silent> <leader>en <Plug>(coc-diagnostic-next)
+
+" GoTo code navigation.
+nmap <silent> <leader>gd <Plug>(coc-definition)
+nmap <silent> <leader>gy <Plug>(coc-type-definition)
+nmap <silent> <leader>gi <Plug>(coc-implementation)
+nmap <silent> <leader>gr <Plug>(coc-references)
+" Use K to show documentation in preview window.
+nnoremap <silent> <leader>h :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+nmap <leader>rn <Plug>(coc-rename)
+" Remap keys for applying codeAction to the current line.
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Apply AutoFix to problem on the current line.
+nmap <leader>qf  <Plug>(coc-fix-current)
+
+" Coc Settings END
 Plug 'junegunn/vader.vim'
 Plug 'google/vim-maktaba'
 Plug 'bazelbuild/vim-bazel'
+Plug 'dart-lang/dart-vim-plugin'
+let g:dart_style_guide = 2
+let g:dart_format_on_save = 1
 Plug 'Shougo/denite.nvim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 let g:go_metalinter_enabled = 1
@@ -112,16 +144,14 @@ let g:user_emmet_settings = {
             \}
 " Syntatic Checker
 Plug 'w0rp/ale'
-set omnifunc=ale#completion#OmniFunc
-
 let g:ale_linters = {
             \ 'javascript': ['prettier', 'eslint'],
-            \ 'typescript': ['prettier', 'tsserver']
+            \ 'typescript': ['prettier', 'tsserver'],
             \}
 let g:ale_fixers = {
             \ '*': ['remove_trailing_lines', 'trim_whitespace'],
             \ 'javascript': ['prettier', 'eslint'],
-            \ 'typescript': ['prettier', 'tslint']
+            \ 'typescript': ['prettier', 'tslint'],
             \}
 
 " Markdown
