@@ -112,6 +112,8 @@ let g:user_emmet_settings = {
             \}
 " Syntatic Checker
 Plug 'w0rp/ale'
+set omnifunc=ale#completion#OmniFunc
+
 let g:ale_linters = {
             \ 'javascript': ['prettier', 'eslint'],
             \ 'typescript': ['prettier', 'tsserver']
@@ -329,6 +331,11 @@ augroup filetype_cpp
     autocmd!
     autocmd FileType cpp setlocal shiftwidth=2 tabstop=2 equalprg=clang-format
     autocmd BufNewFile,BufRead BUILD,*.BUILD,WORKSPACE,*.bzl setlocal equalprg=buildifier
+augroup END
+
+augroup filetype_go
+    autocmd!
+    autocmd BufWritePre *.go GoImports
 augroup END
 "}}}}}}
 " KEYBINDINGS{{{
