@@ -72,7 +72,9 @@ Plug 'dart-lang/dart-vim-plugin'
 let g:dart_style_guide = 2
 let g:dart_format_on_save = 1
 Plug 'Shougo/denite.nvim'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+if executable('go')
+  Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+endif
 let g:go_metalinter_enabled = 1
 
 " Rust
