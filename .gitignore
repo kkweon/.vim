@@ -8,3 +8,4 @@ bin/reason-language-server.exe
 # Elm Plugin creates some weird files (e.g., ~=+github=+elm-stuff=+Main.elm=)
 /view
 coc-settings.json
+*.old
