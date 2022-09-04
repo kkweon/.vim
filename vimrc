@@ -100,12 +100,6 @@ let g:go_metalinter_enabled = 1
 
 " Rust
 Plug 'racer-rust/vim-racer'
-
-" Scala
-" For ensime, http://ensime.github.io/editors/vim/install/
-Plug 'ensime/ensime-vim', { 'do': ':UpdateRemotePlugins' }
-Plug 'derekwyatt/vim-scala'
-
 Plug 'jiangmiao/auto-pairs'
 Plug 'yggdroot/indentline'
 Plug 'elzr/vim-json'
